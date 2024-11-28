@@ -1,0 +1,22 @@
+{
+  "preco_consumo": {
+      "100": 500.0,
+      "200": 900.0,
+      "300": 1200.0
+  },
+  "preco_kwp": {
+      "1": 1000.0,
+      "2": 1500.0,
+      "3": 2000.0
+  },
+  "kits_solares": {
+      "kit_1": 1200.0,
+      "kit_2": 2000.0
+  },
+  "telhados": {
+      "telhado_1": 500.0,
+      "telhado_2": 1000.0
+  },
+  "desconto_pix": 0.05,
+  "parcelamento_maximo": 12
+}

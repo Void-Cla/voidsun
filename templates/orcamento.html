@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento Solar</title>
+    <style>
+        /* Definindo a paleta de cores */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            color: #1f72b6;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .info-section {
+            margin-bottom: 20px;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+        }
+
+        .info-section h2 {
+            font-size: 18px;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .info-section p {
+            font-size: 16px;
+            margin: 5px 0;
+        }
+
+        .highlight {
+            color: #1f72b6;
+            font-weight: bold;
+        }
+
+        .download-button {
+            display: block;
+            margin-top: 30px;
+            text-align: center;
+            font-size: 16px;
+            color: #fff;
+            background-color: #1f72b6;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .download-button:hover {
+            background-color: #145a89;
+        }
+    </style>
+</head>
+<body>
+    <h1>Orçamento Solar - {{ nome }}</h1>
+
+    <div class="container" id="content">
+        <!-- Informações de contato -->
+        <div class="info-section">
+            <h2>Informações do Cliente</h2>
+            <p><span class="highlight">Nome:</span> {{ nome }}</p>
+            <p><span class="highlight">Telefone:</span> {{ telefone }}</p>
+        </div>
+
+        <!-- Informações sobre o consumo e sistema -->
+        <div class="info-section">
+            <h2>Detalhes do Sistema</h2>
+            <p><span class="highlight">Consumo:</span> {{ consumo }} kWh</p>
+            <p><span class="highlight">Potência:</span> {{ potencia }} kWp</p>
+            <p><span class="highlight">Kit Solar:</span> {{ kit }}</p>
+            <p><span class="highlight">Tipo de Telhado:</span> {{ tipo_telhado }}</p>
+        </div>
+
+        <!-- Informações de preços -->
+        <div class="info-section">
+            <h2>Valores e Descontos</h2>
+            <p><span class="highlight">Preço Final:</span> R$ {{ preco_final }}</p>
+            <p><span class="highlight">Desconto PIX:</span> R$ {{ pix_desconto }}</p>
+            <p><span class="highlight">Preço com Desconto:</span> R$ {{ preco_parcelado }}</p>
+        </div>
+
+        <!-- Botão para download do PDF -->
+        <button class="download-button" onclick="downloadPDF()">Baixar PDF</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script>
+        function downloadPDF() {
+            const element = document.getElementById('content');
+
+            // Configurações do PDF
+            const options = {
+                margin: 1,
+                filename: 'orcamento_solar.pdf',
+                image: { type: 'jpeg', quality: 0.98 },
+                html2canvas: { scale: 2 },
+                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+            };
+
+            // Gera e baixa o PDF automaticamente
+            html2pdf().set(options).from(element).save();
+        }
+    </script>
+</body>
+</html>

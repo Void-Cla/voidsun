@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <title>Orçamento Solar</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+    <header>
+        <div id="header-container">
+            <div class="logo">
+                <img src="{{ url_for('static', filename='img/logoG-removebg-preview.png') }}" alt="Logo Energia Solar">
+            </div>
+            <h1>Calcule seu Orçamento Solar</h1>
+        </div>
+    </header>
+    
+
+    <main class="container">
+        <div class="glass">
+        </div>
+        <div class="form-container">
+            <h2>Preencha os dados abaixo para calcular seu orçamento</h2>
+            <form id="input-container" action="/calculate" method="POST">
+                <div class="input-group">
+                    <label for="nome">Nome Completo:</label>
+                    <input type="text" name="nome" placeholder="Seu nome" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="telefone">Telefone:</label>
+                    <input type="text" name="telefone" placeholder="(00)999999999" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="consumo">Consumo Mensal (kWh):</label>
+                    <input type="number" name="consumo" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="potencia">Potência Instalada (kWp):</label>
+                    <input type="number" name="potencia" required>
+                </div>
+
+                <div class="input-group">
+                    <label for="kit">Escolha seu Kit Solar:</label>
+                    <select name="kit" required>
+                        <option value="kit_1">Kit 1</option>
+                        <option value="kit_2">Kit 2</option>
+                    </select>
+                </div>
+
+                <div class="input-group">
+                    <label for="telhado">Tipo de Telhado:</label>
+                    <select name="telhado" required>
+                        <option value="telhado_1">Telhado 1</option>
+                        <option value="telhado_2">Telhado 2</option>
+                    </select>
+                </div>
+
+                <div class="submit-container">
+                    <button id="btn-edit" type="submit"><span>Calcular Orçamento</span></button>
+                </div>
+            </form>
+        </div>
+    </main>
+
+    <!-- <footer>
+        <p>&copy; 2024 Energia Solar Sustentável. Todos os direitos reservados.</p>
+    </footer> -->
+
+</body>
+
+</html>
