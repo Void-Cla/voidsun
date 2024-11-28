@@ -14,10 +14,10 @@ document.getElementById('input-container').addEventListener('submit', (event) =>
 
     // Carrega os dados de preços
     loadPriceData().then(priceData => {
-        // Realiza o cálculo do orçamento
+        
         const result = calculateBudget(data, priceData);
 
-        // Preenche a seção de orçamento com os dados retornados
+        
         document.getElementById('nome').textContent = result.nome;
         document.getElementById('telefone').textContent = result.telefone;
         document.getElementById('consumo').textContent = result.consumo;
@@ -40,7 +40,7 @@ document.getElementById('input-container').addEventListener('submit', (event) =>
 // Função para carregar os dados de preços do arquivo JSON
 async function loadPriceData() {
     try {
-        const response = await fetch('/dados_preco.json');  // Ajuste o caminho se necessário
+        const response = await fetch('dados_preco.json');
         if (!response.ok) throw new Error('Erro ao carregar os dados de preços');
         return await response.json();
     } catch (error) {
@@ -97,5 +97,5 @@ function downloadPDF() {
     html2pdf().set(options).from(element).save();
 }
 
-// Associar a função de download ao botão
+
 document.querySelector('.download-button').addEventListener('click', downloadPDF);
