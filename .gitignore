@@ -1,0 +1,33 @@
+# Arquivos e pastas do ambiente virtual
+venv/
+.env
+*.env
+
+# Arquivos de configuração e credenciais
+config.py
+instance/
+__pycache__/
+
+# Arquivos de sistema
+*.pyc
+*.pyo
+*.log
+*.sqlite3
+*.db
+
+# Arquivos gerados por relatórios ou PDFs
+static/pdfs/
+*.pdf
+
+# Diretórios do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos do editor
+.vscode/
+.idea/
+*.swp
+*.swo
+
+
+*.egg-info/
