@@ -176,3 +176,116 @@ header {
   #btn-edit:hover:after{
     width: 100%;
   }
+
+  
+
+
+
+
+  /* Orçamento Solar */
+#orcamento-section {
+    display: none;  
+    width: 70%;
+    background: rgba(255, 255, 255, 0.25);  
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(13px);  
+    -webkit-backdrop-filter: blur(13px);
+    padding: 40px;
+    margin-top: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Título da Seção */
+#orcamento-section h1 {
+    font-size: 2.5rem;
+    text-align: center;
+    color: #1f72b6;  
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Conteúdo da Seção */
+#content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.info-section {
+    width: 80%;
+    margin-bottom: 20px;
+    padding: 20px;
+    background-color: rgb(216, 215, 149); 
+    border-radius: 10px;
+    border: 1px solid #ffffffc5;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+.info-section h2 {
+    font-size: 1.6rem;
+    color: #1f72b6;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Parágrafos dentro das informações */
+.info-section p {
+    font-size: 1.2rem;
+    margin: 8px 0;
+    color: #333;
+}
+
+/* Destaque para as informações importantes */
+.highlight {
+    font-weight: bold;
+    color: #ff6800;  
+}
+
+/* Estilo do Botão de Download */
+.download-button {
+    padding: 15px 30px;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #1f72b6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    text-align: center;
+    margin-top: 100px;
+    text-transform: uppercase;
+}
+
+.download-button:hover {
+    background-color: #145a89;
+}
+
+/* Responsividade para telas menores */
+@media screen and (max-width: 768px) {
+    #orcamento-section {
+        padding: 20px;
+    }
+
+    .info-section {
+        width: 100%;
+        margin-bottom: 15px;
+    }
+
+    .info-section h2 {
+        font-size: 1.4rem;
+    }
+
+    .info-section p {
+        font-size: 1.1rem;
+    }
+
+    .download-button {
+        width: 100%;
+        padding: 15px;
+    }
+}

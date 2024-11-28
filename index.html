@@ -1,33 +1,36 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Parkinsans:wght@300..800&display=swap"
+        rel="stylesheet">
     <title>Orçamento Solar</title>
-    <link rel="stylesheet" href="/static/style.css">
-</head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+    <script type="module" src="script.js"></script>
+    < </head>
 
 <body>
 
     <header>
         <div id="header-container">
             <div class="logo">
-                <img src="{{ url_for('static', filename='img/logoG-removebg-preview.png') }}" alt="Logo Energia Solar">
+                <img src="/img/logoG-removebg-preview.png" alt="Logo Energia Solar">
             </div>
             <h1>Calcule seu Orçamento Solar</h1>
         </div>
     </header>
-    
 
     <main class="container">
-        <div class="glass">
-        </div>
+        <div class="glass"></div>
         <div class="form-container">
             <h2>Preencha os dados abaixo para calcular seu orçamento</h2>
-            <form id="input-container" action="/calculate" method="POST">
+            <form id="input-container">
                 <div class="input-group">
                     <label for="nome">Nome Completo:</label>
                     <input type="text" name="nome" placeholder="Seu nome" required>
@@ -69,11 +72,39 @@
                 </div>
             </form>
         </div>
-    </main>
 
-    <!-- <footer>
-        <p>&copy; 2024 Energia Solar Sustentável. Todos os direitos reservados.</p>
-    </footer> -->
+        <!-- Nova Seção: Orçamento Solar -->
+        <section id="orcamento-section" style="display: none;">
+            <h1>Orçamento Solar</h1>
+            <div class="container" id="content">
+                <!-- Informações de contato -->
+                <div class="info-section">
+                    <h2>Informações do Cliente</h2>
+                    <p><span class="highlight">Nome:</span> <span id="nome"></span></p>
+                    <p><span class="highlight">Telefone:</span> <span id="telefone"></span></p>
+                </div>
+
+                <!-- Informações sobre o consumo e sistema -->
+                <div class="info-section">
+                    <h2>Detalhes do Sistema</h2>
+                    <p><span class="highlight">Consumo:</span> <span id="consumo"></span> kWh</p>
+                    <p><span class="highlight">Potência:</span> <span id="potencia"></span> kWp</p>
+                    <p><span class="highlight">Kit Solar:</span> <span id="kit"></span></p>
+                    <p><span class="highlight">Tipo de Telhado:</span> <span id="tipoTelhado"></span></p>
+                </div>
+
+                <!-- Informações de preços -->
+                <div class="info-section">
+                    <h2>Valores e Descontos</h2>
+                    <p><span class="highlight">Preço Final:</span> R$ <span id="total"></span></p>
+                </div>
+
+                <!-- Botão para download do PDF -->
+                <button class="download-button" onclick="downloadPDF()">Baixar PDF</button>
+            </div>
+        </section>
+
+    </main>
 
 </body>
 

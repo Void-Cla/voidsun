@@ -1,3 +1,0 @@
-Flask
-fpdf2
-reportlab
