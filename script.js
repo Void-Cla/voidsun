@@ -17,7 +17,7 @@ document.getElementById('input-container').addEventListener('submit', (event) =>
         
         const result = calculateBudget(data, priceData);
 
-        
+        // Atualiza a interface com os resultados
         document.getElementById('nome').textContent = result.nome;
         document.getElementById('telefone').textContent = result.telefone;
         document.getElementById('consumo').textContent = result.consumo;
@@ -40,7 +40,8 @@ document.getElementById('input-container').addEventListener('submit', (event) =>
 // Função para carregar os dados de preços do arquivo JSON
 async function loadPriceData() {
     try {
-        const response = await fetch('dados_preco.json');
+        
+        const response = await fetch('https://void-cla.github.io/voidsun/dados_preco.json');
         if (!response.ok) throw new Error('Erro ao carregar os dados de preços');
         return await response.json();
     } catch (error) {
@@ -85,7 +86,12 @@ function calculateBudget(data, priceData) {
 // Função para baixar o orçamento como PDF
 function downloadPDF() {
     const element = document.getElementById('content');
+    const downloadButton = document.querySelector('.download-button'); // Seleciona o botão de download
 
+    // Oculta o botão para que ele não apareça no PDF
+    downloadButton.style.display = 'none';
+
+    // Configura as opções do HTML2PDF
     const options = {
         margin: 1,
         filename: 'orcamento_solar.pdf',
@@ -94,8 +100,13 @@ function downloadPDF() {
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
     };
 
-    html2pdf().set(options).from(element).save();
+    // Gera e salva o PDF
+    html2pdf().set(options).from(element).save().then(() => {
+        // Após gerar o PDF, torna o botão visível novamente
+        downloadButton.style.display = 'block';
+    });
 }
 
 
+// Adiciona o evento de clique para o botão de download de PDF
 document.querySelector('.download-button').addEventListener('click', downloadPDF);
