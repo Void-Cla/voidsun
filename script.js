@@ -118,10 +118,8 @@ function downloadPDF() {
 
     // Gera o PDF a partir do conteúdo
     html2pdf().set(options).from(tempDiv).save().then(() => {
-        // Exibe o botão novamente após o download
         downloadButton.style.display = 'block';
     });
 }
 
-// Adiciona o evento de clique para o botão de download de PDF
 document.querySelector('.download-button').addEventListener('click', downloadPDF);
