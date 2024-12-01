@@ -90,28 +90,28 @@ function calculateBudget(data, priceData) {
 
 // Função para atualizar a interface com os resultados do orçamento
 function updateUI(result) {
-   
     document.getElementById('nome').textContent = result.nome;
     document.getElementById('telefone').textContent = result.telefone;
     document.getElementById('consumo').textContent = result.consumo;
     document.getElementById('potencia').textContent = result.potencia;
     document.getElementById('kit').textContent = result.kit;
     document.getElementById('tipoTelhado').textContent = result.telhado;
-    document.getElementById('total').textContent = result.preco_final.toFixed(2);
-  
     
+    const totalElements = document.querySelectorAll('#total');
+    if (totalElements.length > 1) {
+      totalElements[1].textContent = result.preco_final.toFixed(2);
+    }
+    
+    const orcamentoSection = document.getElementById('ocamentobb');
+    if (orcamentoSection) {
+      orcamentoSection.style.display = 'block';
+    }
   
-  const orcamentoSection = document.getElementById('ocamentobb');
-  if (orcamentoSection) {
-    orcamentoSection.style.display = 'block';
+    const form = document.getElementById('input-container');
+    if (form) {
+      form.style.display = 'none';
+    }
   }
-
-  
-  const form = document.getElementById('input-container');
-  if (form) {
-    form.style.display = 'none';
-  }
-}
   
  
 
