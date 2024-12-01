@@ -34,6 +34,28 @@ async function loadPriceData() {
     }
 }
 
+//evento de escuta dos dados de preços
+    document.getElementById('input-container').addEventListener('input', async () => {
+        // Coleta os dados do formulário
+        const data = {
+          consumo: document.querySelector('input[name="consumo"]').value,
+          potencia: document.querySelector('input[name="potencia"]').value,
+          kit: document.querySelector('select[name="kit"]').value,
+          telhado: document.querySelector('select[name="telhado"]').value
+        };
+      
+        // Carrega os dados de preços e calcula o orçamento
+        loadPriceData().then(priceData => {
+          const result = calculateBudget(data, priceData);
+          // Atualiza o preço parcial
+          document.getElementById('total').textContent = result.preco_final.toFixed(2);
+        }).catch(error => {
+          console.error('Erro ao carregar os dados de preços:', error);
+          alert('Erro ao carregar os dados de preços.');
+        });
+      });
+
+
 // Função para calcular o orçamento com base nos dados fornecidos
 function calculateBudget(data, priceData) {
     const consumo = parseFloat(data.consumo);
@@ -68,6 +90,7 @@ function calculateBudget(data, priceData) {
 
 // Função para atualizar a interface com os resultados do orçamento
 function updateUI(result) {
+   
     document.getElementById('nome').textContent = result.nome;
     document.getElementById('telefone').textContent = result.telefone;
     document.getElementById('consumo').textContent = result.consumo;
@@ -75,11 +98,16 @@ function updateUI(result) {
     document.getElementById('kit').textContent = result.kit;
     document.getElementById('tipoTelhado').textContent = result.telhado;
     document.getElementById('total').textContent = result.preco_final.toFixed(2);
+  
+    
+    const orcamentoSection = document.getElementById('ocamentobb');
+    if (orcamentoSection) {
+      orcamentoSection.style.display = 'block';
+    }
+  }
 
-    // Exibe a seção de orçamento e oculta o formulário
-    document.getElementById('orcamento-section').style.display = 'block';
-    document.querySelector('.content').style.display = 'none';
-}
+  
+ 
 
 // Função para baixar o orçamento como PDF
 function downloadPDF() {
@@ -99,7 +127,7 @@ function downloadPDF() {
     tempDiv.style.backgroundColor = document.body.style.backgroundColor;
     tempDiv.style.fontFamily = document.body.style.fontFamily;
 
-    // Configura as opções do HTML2PDF
+    
     const options = {
         margin: 10,
         filename: `${nomeCliente}_orcamento_solar.pdf`, 
@@ -116,7 +144,7 @@ function downloadPDF() {
         }
     };
 
-    // Gera o PDF a partir do conteúdo
+    
     html2pdf().set(options).from(tempDiv).save().then(() => {
         downloadButton.style.display = 'block';
     });
