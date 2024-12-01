@@ -1,4 +1,4 @@
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -6,129 +6,69 @@
 }
 
 body {
-    height: 200vh;
-    width: 100%;
-    background: rgb(255,104,0);
-    background: linear-gradient(0deg, #ff6800 0%, #fedc00 100%);
-}
-
-header {
-    height: 30vh;
-    width: 100%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 50px;
-}
-
-#header-container {
-    display: flex;
-    align-items: center;
-    height: 80%;
-    width: 90%;
-    background: rgba( 255, 255, 255, 0.35 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 13.5px );
-    -webkit-backdrop-filter: blur( 13.5px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
-}
-
-#header-container > h1 {
-    font-size: 3rem;
-    margin: 0 auto;
-    text-transform: uppercase;
-    text-shadow: 3px 3px 2px #fff;
-}
-
-.logo > img {
-    height: 200px;
-}
-
-.glass {
-    height: 130vh;
-    width: 80%;
-    position: absolute;
-    background-color: #fff;
-    background: rgba( 255, 255, 255, 0.25 );
-    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
-    backdrop-filter: blur( 1px );
-    -webkit-backdrop-filter: blur( 1px );
-    border-radius: 10px;
-    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    height: 100vh;
 }
 
 .container {
-    height: 120vh;
-    width: 100%;
+    max-width: 650px;
+    padding: 28px;
+    margin: 0 28px;
+    box-shadow: 0 15px 20px #abb2b9;
+}
+
+h2 {
+    font-size: 26px;
+    font-weight: 600;
+    text-align: left;
+    color: #2f4f4f;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #c0c0c0;
+}
+
+.content {
     display: flex;
-    justify-content: center;
-}
-
-.form-container {
-    height: 100%;
-    width: 80%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    position: relative;
-}
-
-.form-container >h2 {
-    text-align: center;
-    font-size: 1.8rem;
-    padding: 40px;
-    text-transform: uppercase;
-    height: 20%;
-}
-
-.form-container >form {
-    height: 100%;
-}
-
-#input-container {
-    display: flex;
-    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: space-between;
-    align-items: start;
-    width: 80%;
+    padding: 20px 0;
 }
 
-.input-group {
-    height: 100px;
-    width: 50%;
+.input-box {
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    border: 1px solid #ffffffc5;
-    border-radius: 10px ;
-    margin: 10px;
-    padding: 0 0 0 10px;
-}
-
-.input-group input {
-    height: 40px;
+    flex-wrap: wrap;
     width: 50%;
-    outline: none;
-    text-align: center;
+    padding-bottom: 15px;
+}
+
+.input-box label {
+    width: 95%;
+    color: #2f4f4f;
+    font-weight: bold;
+    margin: 5px 0;
+}
+
+.input-box input {
+    height: 40px;
+    width: 95%;
+    padding: 0 10px;
     border-radius: 5px;
-    border: 1px solid rgba(255, 255, 255, 0.47);
+    border: 1px solid #ccc;
+    outline: none;
 }
 
-.input-group input:focus {
-    border: 2px solid #000000a7;
-}
-
-.input-group select {
-    width: 40%;
+.input-box input:is(:focus, :valid) {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .submit-container {
-    width: 40%;
+    width: 100%;
     height: 15%;
     display: flex;
     justify-content: center;
     align-items: end;
+    margin-top: 40px;
 }
 
 .submit-container > button {
@@ -138,12 +78,13 @@ header {
   
   #btn-edit{
     display: block;
-    width: 300px;
-    height: 50px;
+    width: 200px;
+    height: 40px;
     line-height: 40px;
-    font-size: 15px;
+    font-size: 12px;
     font-family: sans-serif;
     text-decoration: none;
+    font-weight: bold;
     color: #333;
     border: 2px solid #333;
     letter-spacing: 2px;
@@ -153,7 +94,7 @@ header {
   }
   
   #btn-edit span{
-    bottom: 12px;
+    bottom: 15px;
     position: relative;
     z-index: 2;
   }
@@ -165,7 +106,7 @@ header {
     left: 0;
     width: 0;
     height: 100%;
-    background: #ff8400;
+    background: #7c7c7c;
     transition: all .35s;
   }
   
@@ -177,58 +118,94 @@ header {
     width: 100%;
   }
 
-  
+  .price-container {
+    margin-top: 50px;
+    width: 100%;
+  }
 
+  #price {
+    font-size: 25px;
+    margin-left: 5px;
+  }
+
+  @media(max-width:600px) {
+
+    .container {
+        min-width: 280px;
+    }
+
+    .content {
+        max-height: 380px;
+        overflow: auto;
+    }
+
+    h2, 
+    #price {
+        font-size: 19px;
+    }
+
+    #price {
+        margin-left: 0;
+    }
+
+    .input-box {
+        margin-bottom: 12px;
+        width: 100%;
+    }
+  }
 
 
 
   /* Orçamento Solar */
-#orcamento-section {
-    display: none;  
-    width: 70%;
-    background: rgba(255, 255, 255, 0.25);  
+.orcamento-section {
+    display: none;
+    width: 100%;
+    background: #ffffff40;  
     border-radius: 10px;
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    box-shadow: 0 15px 20px #abb2b9;
     backdrop-filter: blur(13px);  
     -webkit-backdrop-filter: blur(13px);
     padding: 40px;
     margin-top: 50px;
-    border: 1px solid rgba(255, 255, 255, 0.18);
+    border: 1px solid #ffffff2e;
 }
 
 /* Título da Seção */
-#orcamento-section h1 {
+.orcamento-section h2 {
     font-size: 2.5rem;
-    text-align: center;
-    color: #1f72b6;  
-    text-transform: uppercase;
-    margin-bottom: 20px;
-    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.content-pdf {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
 }
 
 /* Conteúdo da Seção */
-#content {
+/* #content {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
-}
+} */
 
 .info-section {
     width: 80%;
     margin-bottom: 20px;
     padding: 20px;
-    background-color: rgb(216, 215, 149); 
+    background-color: #efefef; 
     border-radius: 10px;
-    border: 1px solid #ffffffc5;
+    border: 1px solid #c9c9c9;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 
 .info-section h2 {
     font-size: 1.6rem;
-    color: #1f72b6;
+    color: #2f4f4f;
     margin-bottom: 15px;
     text-align: center;
 }
@@ -243,7 +220,7 @@ header {
 /* Destaque para as informações importantes */
 .highlight {
     font-weight: bold;
-    color: #ff6800;  
+    color: #2b2b2b;  
 }
 
 /* Estilo do Botão de Download */
@@ -255,9 +232,9 @@ header {
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: 0.3s ease;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 50px;
     text-transform: uppercase;
 }
 

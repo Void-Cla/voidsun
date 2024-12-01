@@ -18,41 +18,34 @@
 
 <body>
 
-    <header>
-        <div id="header-container">
-            <div class="logo">
-                <img src="logo.png" alt="Logo Energia Solar">
-            </div>
-            <h1>Calcule seu Orçamento Solar</h1>
-        </div>
-    </header>
 
     <main class="container">
-        <div class="glass"></div>
-        <div class="form-container">
-            <h2>Preencha os dados abaixo para calcular seu orçamento</h2>
-            <form id="input-container">
-                <div class="input-group">
+        <form id="input-container">
+            <h2>Calcule seu Orçamento</h2>
+            <!-- form-container -->
+            <div class="content">
+                <!-- input-group -->
+                <div class="input-box"> 
                     <label for="nome">Nome Completo:</label>
                     <input type="text" name="nome" placeholder="Seu nome" required>
                 </div>
 
-                <div class="input-group">
+                <div class="input-box">
                     <label for="telefone">Telefone:</label>
                     <input type="text" name="telefone" placeholder="(00)999999999" required>
                 </div>
 
-                <div class="input-group">
+                <div class="input-box">
                     <label for="consumo">Consumo Mensal (kWh):</label>
                     <input type="number" name="consumo" required>
                 </div>
 
-                <div class="input-group">
+                <div class="input-box">
                     <label for="potencia">Potência Instalada (kWp):</label>
                     <input type="number" name="potencia" required>
                 </div>
 
-                <div class="input-group">
+                <div class="input-box">
                     <label for="kit">Escolha seu Kit Solar:</label>
                     <select name="kit" required>
                         <option value="kit_1">Kit 1</option>
@@ -60,12 +53,16 @@
                     </select>
                 </div>
 
-                <div class="input-group">
+                <div class="input-box">
                     <label for="telhado">Tipo de Telhado:</label>
                     <select name="telhado" required>
                         <option value="telhado_1">Telhado 1</option>
                         <option value="telhado_2">Telhado 2</option>
                     </select>
+                </div>
+
+                <div class="price-container">
+                    <h2>Preço Parcial: <span id="total"></span></h2>
                 </div>
 
                 <div class="submit-container">
@@ -75,9 +72,9 @@
         </div>
 
         
-        <section id="orcamento-section" style="display: none;">
-            <h1>Orçamento Solar</h1>
-            <div class="container" id="content">
+        <section class="orcamento-section">
+            <h2>Orçamento Solar</h2>
+            <div class="content-pdf" id="content">
                 
                 <div class="info-section">
                     <h2>Informações do Cliente</h2>

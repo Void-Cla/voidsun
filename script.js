@@ -78,7 +78,7 @@ function updateUI(result) {
 
     // Exibe a seção de orçamento e oculta o formulário
     document.getElementById('orcamento-section').style.display = 'block';
-    document.querySelector('.form-container').style.display = 'none';
+    document.querySelector('.content').style.display = 'none';
 }
 
 // Função para baixar o orçamento como PDF
