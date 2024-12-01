@@ -100,12 +100,18 @@ function updateUI(result) {
     document.getElementById('total').textContent = result.preco_final.toFixed(2);
   
     
-    const orcamentoSection = document.getElementById('ocamentobb');
-    if (orcamentoSection) {
-      orcamentoSection.style.display = 'block';
-    }
+  
+  const orcamentoSection = document.getElementById('ocamentobb');
+  if (orcamentoSection) {
+    orcamentoSection.style.display = 'block';
   }
 
+  
+  const form = document.getElementById('input-container');
+  if (form) {
+    form.style.display = 'none';
+  }
+}
   
  
 
